@@ -1,0 +1,18 @@
+git的命令:
+git取消版本控制: find . -name ".git" | xargs rm -Rf
+git 代码查询行数:git ls-files | xargs cat | wc -l
+
+linux部署:
+切换root: sudo -i
+查看端口(root权限下):lsof -i:8080
+杀死进程:kill -9 pid
+nohup java -jar xxxxxx.jar &
+scp e:/123.jar  root@10.213.245.195:/opt/cloudinit/localvul/
+
+
+
+防火墙:
+firewall-cmd --list-ports
+firewall-cmd --zone=public --add-port=9001/tcp --permanent
+systemctl restart firewalld.service
+firewall-cmd --zone=public --add-port=1080/tcp --permanent
