@@ -1,1 +1,77 @@
 
+启动docker:
+systemctl start docker 
+systemctl status docker 
+systemctl restart docker 
+设置docker开机自启:
+systemctl enable docker 
+
+
+
+(拉取镜像,创建容器)
+镜像操作:
+列出镜像(本地):
+docker images        
+搜索镜像(网上):
+docker search 镜像名  
+拉取镜像:
+docker pull 镜像名:版本
+删除镜像:
+docker rmi  镜像id/仓库名
+
+容器操作:
+查看正在运行的容器:
+docker ps
+查看所有容器:
+docker ps -a
+创建运行容器:
+docker run 
+--name=容器名 给创建的容器起名
+docker run -it --name=mycentos centos:latest  /bin/bash (交互式容器,退出容器就停止)
+
+docker run -di --name=mycentos1 centos:latest   (守护式容器)
+进入守护式容器:
+docker exec -it mycentos1 /bin/bash
+
+宿主机和容器拷贝:
+docker cp(复制之前容器必须是启动的)
+列如:
+1.复制
+docker cp tensquare_elasticsearch:/usr/share/elasticsearch/config/elasticsearch.yml  /usr/share/elasticsearch.yml  (把docker 容器中的elasticsearch.yml复制到本地)
+2.docker stop 容器名
+3.docker rm 容器名
+4.挂载.
+目录挂载:
+
+docker run -di --name=mycentos1 centos:latest  -v usr/local/mythml:usr/local/mh --privileged=true
+
+-v usr/local/mythml:usr/local/mh 目录挂载:宿主机文件挂载到容器
+--privileged=true 设置权限
+
+
+查看容器id:
+docker inspect 容器名
+删除容器:
+docker rm 容器名/容器id
+
+创建mysql容器命令:docker run -di --name=mysql -p 33306:3306 -e MYSQL_ROOT_PASSWORD=123456 centos/mysql-56-centos7
+创建tomcat容器命令:docker run -di --name=tomcat -v /usr/local/webapps:/usr/local/tomcat/webapps -p 9000:8080 --privileged=true tomcat:latest
+
+
+往容器中添加项目:
+docker inspect -f  '{{.Id}}' faa
+cd /var/lib/docker/devicemapper/mnt/faa9181bbb365d1057d40616e9cb2814d6b2754729bbac2cd431d61c7ff3f232
+
+docker映射挂载:
+ docker run -di -p 9009:8080 --name=tomcat2 --privileged=true -v /usr/local/webapps:/usr/local/tomcat/webapps/ tomcat:latest
+ 
+ 
+ dockerfile生成docker容器:
+ docker build -t local-portal . 
+ docker run  -di --name local-portal --network=host -p 8003:8003 local-portal:latest
+ 
+ 查看docker日志:
+docker logs --since 30m b4ff25f2043e
+docker logs -f --tail=10  local-portal
+ 
+ 
