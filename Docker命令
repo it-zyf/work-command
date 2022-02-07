@@ -68,7 +68,9 @@ docker映射挂载:
  
  dockerfile生成docker容器:
  docker build -t local-portal . 
+ 启动镜像:
  docker run  -di --name local-portal --network=host -p 8003:8003 local-portal:latest
+ docker run -di --name local-portal2 -e server.port=8201 -p 8201:8201 --network=host local-portal:latest
  
  查看docker日志:
 docker logs --since 30m b4ff25f2043e
