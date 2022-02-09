@@ -53,6 +53,8 @@ docker run -di --name=mycentos1 centos:latest  -v usr/local/mythml:usr/local/mh 
 docker inspect 容器名
 删除容器:
 docker rm 容器名/容器id
+docker rm -f 容器名/容器id(运行的容器也可直接删除)
+
 
 创建mysql容器命令:docker run -di --name=mysql -p 33306:3306 -e MYSQL_ROOT_PASSWORD=123456 centos/mysql-56-centos7
 创建tomcat容器命令:docker run -di --name=tomcat -v /usr/local/webapps:/usr/local/tomcat/webapps -p 9000:8080 --privileged=true tomcat:latest
