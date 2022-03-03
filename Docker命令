@@ -77,5 +77,37 @@ docker映射挂载:
  查看docker日志:
 docker logs --since 30m b4ff25f2043e
 docker logs -f --tail=10  local-portal
+
+常用:
+local-gateway:
+docker run  -di --name local-gateway --network=host -p 8000:8000 -e "SPRING_PROFILES_ACTIVE=dev" local-gateway:latest
+
+
+local-token:
+dev:
+docker run  -di --name local-token --network=host -p 8001:8001 -e "SPRING_PROFILES_ACTIVE=dev" local-token:latest
+docker run -di --name local-token2 -e server.port=8202 -p 8202:8202 --network=host -e "SPRING_PROFILES_ACTIVE=dev" local-token:latest
+
+
+local-portal:
+dev:
+docker run  -di --name local-portal --network=host -p 8003:8003 -e "SPRING_PROFILES_ACTIVE=dev" local-portal:latest
+docker run -di --name local-portal2 -e server.port=8203 -p 8203:8203 --network=host -e "SPRING_PROFILES_ACTIVE=dev" local-portal:latest
+
+test:
+docker build -t local-portal:v1 .
+docker run  -di --name local-portal6 --network=host -p 8603:8603 -e "SPRING_PROFILES_ACTIVE=test" local-portal:v1
+
+
+
+
+
+
+
+
+
+
+
+
  
  
