@@ -20,3 +20,18 @@ firewall-cmd --list-ports
 firewall-cmd --zone=public --add-port=9001/tcp --permanent
 systemctl restart firewalld.service
 firewall-cmd --zone=public --add-port=1080/tcp --permanent
+
+
+nginx:
+
+启动nginx
+
+./usr/local/nginx/sbin/nginx
+
+停止nginx
+ 
+nginx -s stop
+ 
+重启nginx
+ 
+nginx -s reload
