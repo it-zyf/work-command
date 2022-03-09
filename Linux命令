@@ -35,3 +35,7 @@ nginx -s stop
 重启nginx
  
 nginx -s reload
+
+修改配置:
+/usr/local/nginx/sbin/nginx -t测试配置文件修改是否正常
+
