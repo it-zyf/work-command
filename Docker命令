@@ -98,6 +98,21 @@ test:
 docker build -t local-portal:v1 .
 docker run  -di --name local-portal6 --network=host -p 8603:8603 -e "SPRING_PROFILES_ACTIVE=test" local-portal:v1
 
+local-es-data:
+dev:
+docker build -t local-es-data .
+docker run  -di --name local-es-data --network=host -p 8006:8006 -e "SPRING_PROFILES_ACTIVE=dev" local-es-data:latest 
+
+test:
+docker build -t local-es-data:v1.1 .
+docker run  -di --name local-es-data6 --network=host -p 8606:8606 -e "SPRING_PROFILES_ACTIVE=test" local-es-data:v1.1
+
+local-db-data:
+dev:
+docker build -t local-db-data .
+docker run  -di --name local-db-data --network=host -p 8005:8005 -e "SPRING_PROFILES_ACTIVE=dev" local-db-data:latest 
+
+
 
 
 
