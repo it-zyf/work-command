@@ -68,6 +68,10 @@ docker映射挂载:
  docker run -di -p 9009:8080 --name=tomcat2 --privileged=true -v /usr/local/webapps:/usr/local/tomcat/webapps/ tomcat:latest
  
  
+ kafka启动:
+ docker run -di  --name kafka --network=host -p 9092:9092  -e KAFKA_BROKER_ID=0  -e KAFKA_ZOOKEEPER_CONNECT=123.57.39.161:2181/kafka -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://123.57.39.161:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -v /etc/localtime:/etc/localtime wurstmeister/kafka
+ 
+ 
  dockerfile生成docker容器:
  docker build -t local-portal . 
  启动镜像:
