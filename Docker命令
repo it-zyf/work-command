@@ -118,6 +118,13 @@ docker run  -di --name local-db-data --network=host -p 8005:8005 -e "SPRING_PROF
 
 
 
+single-db:
+dev:
+docker build -t single-db .
+docker run  -di --name single-db --network=host -p 8401:8401 -e "SPRING_PROFILES_ACTIVE=dev" single-db:latest 
+
+
+
 
 
 
