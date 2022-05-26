@@ -129,6 +129,10 @@ dev:
 docker build -t single-es .
 docker run  -di --name single-es --network=host -p 8406:8406 -e "SPRING_PROFILES_ACTIVE=dev" single-es:latest 
 
+test:
+docker build -t single-es:v1.1 .
+docker run  -di --name single-es2 --network=host -p 8407:8407 -e "SPRING_PROFILES_ACTIVE=test" single-es:v1.1 
+
 
 
 
