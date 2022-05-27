@@ -127,6 +127,10 @@ dev:
 docker build -t single-db .
 docker run  -di --name single-db --network=host -p 8401:8401 -e "SPRING_PROFILES_ACTIVE=dev" single-db:latest 
 
+test:
+docker build -t single-db:v1.1 .
+docker run  -di --name single-db2 --network=host -p 8402:8402 -e "SPRING_PROFILES_ACTIVE=test" single-db:v1.1 
+
 
 single-es:
 dev:
