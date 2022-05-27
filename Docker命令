@@ -84,7 +84,11 @@ docker logs -f --tail=10  local-portal
 
 常用:
 local-gateway:
+dev:
 docker run  -di --name local-gateway --network=host -p 8000:8000 -e "SPRING_PROFILES_ACTIVE=dev" local-gateway:latest
+test:
+docker run  -di --name local-gateway6 --network=host -p 8600:8600 -e "SPRING_PROFILES_ACTIVE=test" local-gateway:v1.1
+
 
 
 local-token:
