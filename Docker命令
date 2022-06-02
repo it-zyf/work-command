@@ -120,6 +120,10 @@ dev:
 docker build -t local-db-data .
 docker run  -di --name local-db-data --network=host -p 8005:8005 -e "SPRING_PROFILES_ACTIVE=dev" local-db-data:latest 
 
+test:
+docker build -t local-db-data:v1.1
+docker run  -di --name local-db-data6 --network=host -p 8605:8605 -e "SPRING_PROFILES_ACTIVE=test" local-db-data:v1.1 
+
 
 
 single-db:
