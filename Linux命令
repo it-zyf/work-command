@@ -39,3 +39,11 @@ nginx -s reload
 修改配置:
 /usr/local/nginx/sbin/nginx -t测试配置文件修改是否正常
 
+linux请求接口:
+curl:
+curl localhost:8606/esdata/pull/knowledge -X POST -d '{ }' --header "Content-Type: application/json"
+
+
+
+
+
