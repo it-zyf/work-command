@@ -1,6 +1,3 @@
-git的命令:
-git取消版本控制: find . -name ".git" | xargs rm -Rf
-git 代码查询行数:git ls-files | xargs cat | wc -l
 
 linux部署:
 切换root: sudo -i
