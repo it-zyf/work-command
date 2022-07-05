@@ -1,0 +1,2 @@
+撤回第一次commit命令:
+git update-ref -d HEDA
