@@ -10,6 +10,9 @@ scp e:/123.jar  root@10.213.245.195:/opt/cloudinit/localvul/
 查看java进程:
 ps -ef |grep java
 
+查看ip:端口是否通:
+curl [IP地址]:[端口号]
+
 
 
 防火墙:
