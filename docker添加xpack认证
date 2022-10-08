@@ -1,0 +1,6 @@
+./bin/elasticsearch-certutil ca 
+./bin/elasticsearch-certutil cert --ca elastic-stack-ca.p12
+./bin/elasticsearch-setup-passwords auto|interactive
+./bin/elasticsearch-setup-passwords interactive
+
+elastic elastic
