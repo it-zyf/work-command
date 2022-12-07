@@ -1,0 +1,14 @@
+1.添加topic:
+
+ kafka-topics.sh --create --topic example --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1
+ 
+ 2.查看topic:
+
+kafka-topics.sh --zookeeper zookeeper:2181 --list
+kafka-topics.sh --zookeeper 172.172.100.1:2181 --list
+ 
+3.删除topic:
+ kafka-topics.sh --zookeeper zookeeper:2181 --delete --topic example
+ 
+ 4.获取topic详情:
+ kafka-topics.sh --zookeeper zookeeper:2181 --describe --topic example
