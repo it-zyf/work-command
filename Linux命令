@@ -45,7 +45,10 @@ curl localhost:8606/esdata/pull/knowledge -X POST -d '{ }' --header "Content-Typ
 
 
 查看日志:
-【一】从第3000行开始，显示1000行。即显示3000~3999行
+查看日志关键字:
+cat -n xxx.log | grep 'java'
+
+从第3000行开始，显示1000行。即显示3000~3999行
 cat filename | tail -n +3000 | head -n 1000
 
 
