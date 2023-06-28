@@ -40,6 +40,17 @@ kafka-console-consumer.sh --bootstrap-server hadoop102:9092 --topic first --from
 
 8.消费者组:
 kafka-console-consumer.sh --bootstrap-server hadoop102:9092 --topic first --group aa
+
+--------------------------------------------------------------------------------------------------------------
+docker 中的kafka 查看数据:
+
+1.进入docker 容器中:
+docker exec -it <Kafka容器名称或ID> bash
+2.进入kafka bin 目录
+cd usr/bin
+3.使用命令查看消息(确保topic正确):
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic  default_send_msg  --from-beginning | grep 'HJGJ16879485579925066056'
+
  
  
  
