@@ -49,8 +49,22 @@ docker exec -it <Kafka容器名称或ID> bash
 2.进入kafka bin 目录
 cd usr/bin
 3.使用命令查看消息(确保topic正确):
+/opt/kafka/bin
 kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic  default_send_msg  --from-beginning | grep 'HJGJ16879485579925066056'
 
+4.将kafka某个组的某个topic消息偏移量改为最新：
+1) 先 dry-run（仅显示将要改成的结果，不会修改）
+./kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
+  --group rsng-topo-edit \
+  --topic DELETE_VM_EVENT \
+  --reset-offsets --to-latest --dry-run
+2) 确认无误后真正执行（把该 consumer group 的该 topic 偏移量设为 latest）
+./kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
+  --group rsng-topo-edit \
+  --topic DELETE_VM_EVENT \
+  --reset-offsets --to-latest --execute
+3）执行这个命令来查看直接完后的结果
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group rsng-topo-edit
  
  
  
