@@ -64,7 +64,7 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic  default_sen
   --topic DELETE_VM_EVENT \
   --reset-offsets --to-latest --execute
 3）执行这个命令来查看直接完后的结果
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group rsng-topo-edit
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group rsng-topo-edit | grep DELETE_VM_EVENT
  
  
  
